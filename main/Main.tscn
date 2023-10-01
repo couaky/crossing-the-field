@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main/AsteroidSpawner.gd" type="Script" id=1]
 [ext_resource path="res://main/Main.gd" type="Script" id=2]
 [ext_resource path="res://components/Asteroid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://components/PlayerFleet.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -13,6 +14,7 @@ asteroid_scene = ExtResource( 3 )
 
 [node name="SpawnTimer" type="Timer" parent="AsteroidSpawner"]
 wait_time = 0.5
-autostart = true
+
+[node name="PlayerFleet" parent="." instance=ExtResource( 4 )]
 
 [connection signal="timeout" from="AsteroidSpawner/SpawnTimer" to="AsteroidSpawner" method="_on_SpawnTimer_timeout"]

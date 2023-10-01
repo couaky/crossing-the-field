@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 
 var max_rotation_speed: float = 90.0
@@ -28,3 +28,7 @@ func _physics_process(delta: float):
 	
 	if position.x < 0:
 		queue_free()
+
+
+func _on_Asteroid_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	queue_free()

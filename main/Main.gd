@@ -1,16 +1,15 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# TODOs
+#	Finalize cannon shots
+#		Layer management for collisions
+#		Fire at correct location
+#		Explose at target
+#		Explose at contact
+#		Reload management ?
+#	Next steps
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
