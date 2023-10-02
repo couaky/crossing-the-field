@@ -25,6 +25,7 @@ color = Color( 1, 0, 0, 0.235294 )
 
 [node name="Cruiser" type="Area2D" parent="."]
 position = Vector2( 260, 300 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="SpriteHull" type="Sprite" parent="Cruiser"]
@@ -36,12 +37,21 @@ position = Vector2( 52, 0 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 5 )
 
+[node name="CannonLeft" type="Position2D" parent="Cruiser/SpriteTurret"]
+position = Vector2( 31.4286, -11.4286 )
+
+[node name="CannonMiddle" type="Position2D" parent="Cruiser/SpriteTurret"]
+position = Vector2( 31.4286, 0 )
+
+[node name="CannonRight" type="Position2D" parent="Cruiser/SpriteTurret"]
+position = Vector2( 31.4286, 11.4285 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cruiser"]
 polygon = PoolVector2Array( -78, -26, 34, -28, 81, -9, 81, 7, 35, 28, -77, 23 )
 
 [node name="EscortA" type="Area2D" parent="."]
 position = Vector2( 175, 50 )
-scale = Vector2( 1, 1 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="EscortA"]
@@ -53,7 +63,7 @@ polygon = PoolVector2Array( -69, -15, -23, -15, -14, -25, 16, -25, 24, -16, 39, 
 
 [node name="EscortB" type="Area2D" parent="."]
 position = Vector2( 175, 550 )
-scale = Vector2( 1, 1 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="EscortB"]
@@ -65,6 +75,7 @@ polygon = PoolVector2Array( -69, -15, -23, -15, -14, -25, 16, -25, 24, -16, 39, 
 
 [node name="CargoA" type="Area2D" parent="."]
 position = Vector2( 90, 130 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="CargoA"]
@@ -76,6 +87,7 @@ polygon = PoolVector2Array( -48, -19, -25, -19, -12, -40, 5, -40, 18, -19, 32, -
 
 [node name="CargoB" type="Area2D" parent="."]
 position = Vector2( 90, 230 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="CargoB"]
@@ -87,6 +99,7 @@ polygon = PoolVector2Array( -48, -19, -25, -19, -12, -40, 5, -40, 18, -19, 32, -
 
 [node name="CargoC" type="Area2D" parent="."]
 position = Vector2( 90, 370 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="CargoC"]
@@ -98,6 +111,7 @@ polygon = PoolVector2Array( -48, -19, -25, -19, -12, -40, 5, -40, 18, -19, 32, -
 
 [node name="CargoD" type="Area2D" parent="."]
 position = Vector2( 90, 470 )
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="CargoD"]

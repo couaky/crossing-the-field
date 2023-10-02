@@ -32,6 +32,12 @@ fire_cannons={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ships"
+2d_physics/layer_2="Asteroids"
+2d_physics/layer_3="Weapons"
+
 [physics]
 
 common/enable_pause_aware_picking=true

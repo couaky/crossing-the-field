@@ -3,11 +3,10 @@ extends Node2D
 
 # TODOs
 #	Finalize cannon shots
-#		Layer management for collisions
-#		Fire at correct location
-#		Explose at target
-#		Explose at contact
-#		Reload management ?
+#		Create the shockwave sprite
+#		Explosion logic (shockwave + explosion)
+#		Reload management
+#	Having a proper target icon
 #	Next steps
 
 

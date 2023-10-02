@@ -22,7 +22,7 @@ func _ready():
 	velocity = rand_range(min_velocity, max_velocity)
 
 
-func _physics_process(delta: float):
+func _process(delta: float):
 	rotation += rotation_speed * delta
 	position += direction * velocity * delta
 	
