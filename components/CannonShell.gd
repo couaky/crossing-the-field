@@ -1,10 +1,12 @@
 extends Area2D
 
 
+export var shockwave_scene: PackedScene
+
 var epsilon = 0.1
 var target: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
-var speed: float = 100
+var speed: float = 200
 
 
 func fire_at(shot_target: Vector2):
@@ -13,6 +15,10 @@ func fire_at(shot_target: Vector2):
 
 
 func _detonate():
+	var shockwave = shockwave_scene.instance()
+	var root_node = get_node('/root')
+	root_node.add_child(shockwave)
+	shockwave.position = global_position
 	queue_free()
 
 
