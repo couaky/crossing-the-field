@@ -2,9 +2,8 @@ extends Node2D
 
 
 # TODOs
-#	Finalize cannon shots
-#		Reload management
-#	Having a proper target icon
+#	Having a proper target and cursor icon
+#	Reload data on cursor
 #	Asteroids explosions
 #	Fleet management -> shot permission + game over
 #	Next steps
