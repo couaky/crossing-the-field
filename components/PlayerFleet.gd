@@ -3,8 +3,9 @@ extends Node2D
 
 export var cannon_shell: PackedScene
 
-var min_x_cursor = 350
 var number_of_cannons = 3
+
+var target_node: Node2D
 
 var turret_node: Node2D
 var cannon_next_to_fire: int = 0
@@ -46,15 +47,13 @@ func _ready():
 		$Cruiser/SpriteTurret/CannonRight
 	]
 	cannon_loaded_status = [1, 1, 1]
+	target_node = $Target
 
 
 func _process(delta):
-	var mouse_position = get_viewport().get_mouse_position()
-	mouse_position.x = max(mouse_position.x, min_x_cursor)
-
-	turret_node.look_at(mouse_position)
+	turret_node.look_at(target_node.position)
 
 	_reload_cannons(delta)
 
 	if Input.is_action_just_pressed("fire_cannons"):
-		_fire_cannon(mouse_position)
+		_fire_cannon(target_node.position)
