@@ -2,6 +2,7 @@ extends Area2D
 
 
 export var shockwave_scene: PackedScene
+export var explosion_scene: PackedScene
 
 var epsilon = 0.1
 var target: Vector2 = Vector2.ZERO
@@ -15,10 +16,17 @@ func fire_at(shot_target: Vector2):
 
 
 func _detonate():
-	var shockwave = shockwave_scene.instance()
 	var root_node = get_node('/root')
+
+	var shockwave = shockwave_scene.instance()
 	root_node.add_child(shockwave)
 	shockwave.position = global_position
+
+	var explosion = explosion_scene.instance()
+	root_node.add_child(explosion)
+	explosion.position = global_position
+	explosion.shell_explosion()
+
 	queue_free()
 
 

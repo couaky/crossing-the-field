@@ -7,24 +7,23 @@ var min_x_cursor = 350
 var number_of_cannons = 3
 
 var turret_node: Node2D
-var spawn_points: Array # Of Position2D
-var spawn_cannon_index: int = 0
+var cannon_spawn_points: Array # Of Position2D
+var cannon_spawn_index: int = 0
 
 
 func _fire_cannon(shot_target: Vector2):
-	print("Shoot at %s" % shot_target)
-	var spawn_point = spawn_points[spawn_cannon_index]
+	var spawn_point = cannon_spawn_points[cannon_spawn_index]
 	var created_shell = cannon_shell.instance()
 	add_child(created_shell)
 	created_shell.global_position = spawn_point.global_position
 	created_shell.global_rotation = spawn_point.global_rotation
 	created_shell.fire_at(shot_target)
-	spawn_cannon_index = (spawn_cannon_index + 1) % number_of_cannons
+	cannon_spawn_index = (cannon_spawn_index + 1) % number_of_cannons
 
 
 func _ready():
 	turret_node = $Cruiser/SpriteTurret
-	spawn_points = [
+	cannon_spawn_points = [
 		$Cruiser/SpriteTurret/CannonLeft,
 		$Cruiser/SpriteTurret/CannonMiddle,
 		$Cruiser/SpriteTurret/CannonRight
