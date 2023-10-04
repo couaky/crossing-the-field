@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Cruiser.png" type="Texture" id=1]
 [ext_resource path="res://assets/Escort.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/Target.png" type="Texture" id=9]
 [ext_resource path="res://components/Cursor.gd" type="Script" id=10]
 [ext_resource path="res://components/Target.gd" type="Script" id=11]
+[ext_resource path="res://components/ReloadIndicator.gd" type="Script" id=12]
 
 [node name="PlayerFleet" type="Node2D"]
 script = ExtResource( 6 )
@@ -32,6 +33,18 @@ position = Vector2( 641, 289 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 8 )
 script = ExtResource( 10 )
+
+[node name="CannonLeft" type="Node2D" parent="Cursor"]
+position = Vector2( 100, 0 )
+script = ExtResource( 12 )
+
+[node name="CannonCenter" type="Node2D" parent="Cursor"]
+position = Vector2( 150, 0 )
+script = ExtResource( 12 )
+
+[node name="CannonRight" type="Node2D" parent="Cursor"]
+position = Vector2( 200, 0 )
+script = ExtResource( 12 )
 
 [node name="Target" type="Sprite" parent="."]
 position = Vector2( 768, 302 )

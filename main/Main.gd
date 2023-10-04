@@ -2,7 +2,6 @@ extends Node2D
 
 
 # TODOs
-#	Reload data on cursor
 #	Asteroids explosions
 #	Fleet management -> shot permission + game over
 #	Next steps

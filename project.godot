@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Asteroid",
+"language": "GDScript",
+"path": "res://components/Asteroid.gd"
+}, {
+"base": "Node2D",
+"class": "Explosion",
+"language": "GDScript",
+"path": "res://components/Explosion.gd"
+}, {
+"base": "Node2D",
+"class": "ReloadIndicator",
+"language": "GDScript",
+"path": "res://components/ReloadIndicator.gd"
+}, {
+"base": "Area2D",
+"class": "ShockWave",
+"language": "GDScript",
+"path": "res://components/ShockWave.gd"
+} ]
+_global_script_class_icons={
+"Asteroid": "",
+"Explosion": "",
+"ReloadIndicator": "",
+"ShockWave": ""
+}
+
 [application]
 
 config/name="Crossing the Field"

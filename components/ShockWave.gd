@@ -1,3 +1,4 @@
+class_name ShockWave
 extends Area2D
 
 

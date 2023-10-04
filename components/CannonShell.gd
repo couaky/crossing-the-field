@@ -18,11 +18,11 @@ func fire_at(shot_target: Vector2):
 func _detonate():
 	var root_node = get_node('/root')
 
-	var shockwave = shockwave_scene.instance()
+	var shockwave = shockwave_scene.instance() as ShockWave
 	root_node.add_child(shockwave)
 	shockwave.position = global_position
 
-	var explosion = explosion_scene.instance()
+	var explosion = explosion_scene.instance() as Explosion
 	root_node.add_child(explosion)
 	explosion.position = global_position
 	explosion.shell_explosion()

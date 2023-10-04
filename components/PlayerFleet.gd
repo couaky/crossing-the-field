@@ -13,6 +13,10 @@ var cannon_spawn_points: Array # Of Position2D
 var cannon_reloading_speed: float = 1.0
 var cannon_loaded_status: Array # Of float, 1 means fully loaded
 
+var cannon_left_indicator: ReloadIndicator
+var cannon_center_indicator: ReloadIndicator
+var cannon_right_indicator: ReloadIndicator
+
 
 func _reload_cannons(delta):
 	var need_to_reload = false
@@ -39,6 +43,12 @@ func _fire_cannon(shot_target: Vector2):
 		cannon_next_to_fire = (cannon_next_to_fire + 1) % number_of_cannons
 
 
+func _update_loading_states():
+	cannon_left_indicator.set_value(cannon_loaded_status[0])
+	cannon_center_indicator.set_value(cannon_loaded_status[1])
+	cannon_right_indicator.set_value(cannon_loaded_status[2])
+
+
 func _ready():
 	turret_node = $Cruiser/SpriteTurret
 	cannon_spawn_points = [
@@ -49,6 +59,10 @@ func _ready():
 	cannon_loaded_status = [1, 1, 1]
 	target_node = $Target
 
+	cannon_left_indicator = $Cursor/CannonLeft
+	cannon_center_indicator = $Cursor/CannonCenter
+	cannon_right_indicator = $Cursor/CannonRight
+
 
 func _process(delta):
 	turret_node.look_at(target_node.position)
@@ -57,3 +71,5 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("fire_cannons"):
 		_fire_cannon(target_node.position)
+
+	_update_loading_states()

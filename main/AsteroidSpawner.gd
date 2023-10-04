@@ -15,7 +15,7 @@ func _spawn_asteroid():
 		10,
 		rand_range(10, viewport_size.y - 10))
 
-	var new_asteroid = asteroid_scene.instance()
+	var new_asteroid = asteroid_scene.instance() as Asteroid
 	add_child(new_asteroid)
 	new_asteroid.position = spawn_position
 	new_asteroid.go_to(target_position)
