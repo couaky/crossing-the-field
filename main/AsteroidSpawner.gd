@@ -5,6 +5,12 @@ export var asteroid_scene: PackedScene
 
 var chance_to_spawn = 0.5
 
+var asteroid_mean_speed: float = 100
+var asteroid_deviation: float = 50
+var asteroid_min_speed: float = 50
+
+var rng = RandomNumberGenerator.new()
+
 
 func _spawn_asteroid():
 	var viewport_size = get_viewport().size
@@ -19,6 +25,7 @@ func _spawn_asteroid():
 	add_child(new_asteroid)
 	new_asteroid.position = spawn_position
 	new_asteroid.go_to(target_position)
+	new_asteroid.velocity = max(rng.randfn(asteroid_mean_speed, asteroid_deviation), asteroid_min_speed)
 
 
 func _on_SpawnTimer_timeout():

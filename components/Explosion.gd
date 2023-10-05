@@ -7,5 +7,10 @@ func shell_explosion():
 	$AnimationPlayer.play("ShellExplosion")
 
 
+func asteroid_explosion():
+	$Sprite.scale = Vector2(0.3, 0.3)
+	$AnimationPlayer.play("AsteroidExplosion")
+
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()

@@ -14,6 +14,7 @@ asteroid_scene = ExtResource( 3 )
 
 [node name="SpawnTimer" type="Timer" parent="AsteroidSpawner"]
 wait_time = 0.5
+autostart = true
 
 [node name="PlayerFleet" parent="." instance=ExtResource( 4 )]
 

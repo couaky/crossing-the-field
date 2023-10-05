@@ -2,11 +2,11 @@ class_name Asteroid
 extends Area2D
 
 
+export var explosion_scene: PackedScene
+
 var max_rotation_speed: float = 90.0
 var rotation_speed: float = 0
 
-var min_velocity: float = 100
-var max_velocity: float = 200
 var velocity: float = 0
 var direction: Vector2 = Vector2.ZERO
 
@@ -15,12 +15,18 @@ func go_to(target: Vector2):
 	direction = (target - position).normalized()
 
 
+func _explode():
+	var new_explosion = explosion_scene.instance() as Explosion
+	get_node("/root").add_child(new_explosion)
+	new_explosion.position = global_position
+	new_explosion.asteroid_explosion()
+	queue_free()
+
+
 func _ready():
 	rotation_speed = rand_range(-max_rotation_speed, max_rotation_speed)
 	# Convert to radian
 	rotation_speed = rotation_speed / 360 * 2 * PI
-
-	velocity = rand_range(min_velocity, max_velocity)
 
 
 func _process(delta: float):
@@ -32,4 +38,4 @@ func _process(delta: float):
 
 
 func _on_Asteroid_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	queue_free()
+	_explode()
