@@ -2,7 +2,6 @@ extends Node2D
 
 
 # TODOs
-#	Some adjustments -> first playable version
 #	Fire torpedoes
 #	Ship explosion
 #	Score

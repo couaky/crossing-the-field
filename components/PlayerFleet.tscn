@@ -18,17 +18,6 @@
 script = ExtResource( 6 )
 cannon_shell = ExtResource( 7 )
 
-[node name="FleetArea" type="ColorRect" parent="."]
-margin_right = 350.0
-margin_bottom = 600.0
-color = Color( 1, 1, 1, 0.235294 )
-
-[node name="FightArea" type="ColorRect" parent="."]
-margin_left = 350.0
-margin_right = 1400.0
-margin_bottom = 600.0
-color = Color( 1, 0, 0, 0.235294 )
-
 [node name="Cursor" type="Sprite" parent="."]
 position = Vector2( 641, 289 )
 scale = Vector2( 0.35, 0.35 )

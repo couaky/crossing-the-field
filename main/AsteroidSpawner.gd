@@ -3,10 +3,10 @@ extends Node
 
 export var asteroid_scene: PackedScene
 
-var chance_to_spawn = 0.5
+var chance_to_spawn = 0.2
 
 var asteroid_mean_speed: float = 100
-var asteroid_deviation: float = 50
+var asteroid_deviation: float = 25
 var asteroid_min_speed: float = 50
 
 var rng = RandomNumberGenerator.new()

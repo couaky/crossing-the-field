@@ -7,7 +7,7 @@ export var explosion_scene: PackedScene
 var epsilon = 0.1
 var target: Vector2 = Vector2.ZERO
 var direction: Vector2 = Vector2.ZERO
-var speed: float = 200
+var speed: float = 300
 
 
 func fire_at(shot_target: Vector2):
