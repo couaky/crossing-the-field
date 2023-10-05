@@ -2,7 +2,6 @@ extends Node2D
 
 
 # TODOs
-#	Fleet management -> shot permission + game over
 #	Some adjustments -> first playable version
 #	Fire torpedoes
 #	Ship explosion
