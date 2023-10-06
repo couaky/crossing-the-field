@@ -2,6 +2,7 @@ extends Node2D
 
 
 export var cannon_shell: PackedScene
+export var explosion_scene: PackedScene
 
 
 signal game_over
@@ -49,13 +50,19 @@ func _reload_cannons(delta):
 func _fire_cannon(shot_target: Vector2):
 	if cannon_loaded_status[cannon_next_to_fire] == 1.0:
 		var spawn_point = cannon_spawn_points[cannon_next_to_fire]
-		var created_shell = cannon_shell.instance()
+
+		var created_shell = cannon_shell.instance() as CannonShell
 		add_child(created_shell)
 		created_shell.global_position = spawn_point.global_position
 		created_shell.global_rotation = spawn_point.global_rotation
 		created_shell.fire_at(shot_target)
 		cannon_loaded_status[cannon_next_to_fire] = 0
 		cannon_next_to_fire = (cannon_next_to_fire + 1) % number_of_cannons
+
+		var flash_effect = explosion_scene.instance() as Explosion
+		add_child(flash_effect)
+		flash_effect.global_position = spawn_point.global_position
+		flash_effect.cannon_fire()
 
 
 func _update_loading_states():

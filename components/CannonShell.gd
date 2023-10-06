@@ -1,3 +1,4 @@
+class_name CannonShell
 extends Area2D
 
 
