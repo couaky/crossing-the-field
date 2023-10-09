@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/Cruiser.png" type="Texture" id=1]
 [ext_resource path="res://assets/Escort.png" type="Texture" id=2]
@@ -14,11 +14,13 @@
 [ext_resource path="res://components/ReloadIndicator.gd" type="Script" id=12]
 [ext_resource path="res://components/HealthIndicator.tscn" type="PackedScene" id=13]
 [ext_resource path="res://components/Explosion.tscn" type="PackedScene" id=14]
+[ext_resource path="res://components/Torpedo.tscn" type="PackedScene" id=15]
 
 [node name="PlayerFleet" type="Node2D"]
 script = ExtResource( 6 )
-cannon_shell = ExtResource( 7 )
+cannon_shell_scene = ExtResource( 7 )
 explosion_scene = ExtResource( 14 )
+torpedo_scene = ExtResource( 15 )
 
 [node name="Cursor" type="Sprite" parent="."]
 position = Vector2( 641, 289 )
@@ -36,6 +38,26 @@ script = ExtResource( 12 )
 
 [node name="CannonRight" type="Node2D" parent="Cursor"]
 position = Vector2( 200, 0 )
+script = ExtResource( 12 )
+
+[node name="TubeA1" type="Node2D" parent="Cursor"]
+position = Vector2( 100, -50 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 12 )
+
+[node name="TubeA2" type="Node2D" parent="Cursor"]
+position = Vector2( 150, -50 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 12 )
+
+[node name="TubeB1" type="Node2D" parent="Cursor"]
+position = Vector2( 100, 50 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 12 )
+
+[node name="TubeB2" type="Node2D" parent="Cursor"]
+position = Vector2( 150, 50 )
+scale = Vector2( 1, 1 )
 script = ExtResource( 12 )
 
 [node name="EscortAHealth" parent="Cursor" instance=ExtResource( 13 )]
@@ -93,6 +115,12 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EscortA"]
 polygon = PoolVector2Array( -69, -15, -23, -15, -14, -25, 16, -25, 24, -16, 39, -15, 70, -4, 70, 4, 38, 15, 22, 15, 18, 25, -17, 25, -22, 15, -70, 15 )
 
+[node name="Tube1" type="Position2D" parent="EscortA"]
+position = Vector2( 62, -8 )
+
+[node name="Tube2" type="Position2D" parent="EscortA"]
+position = Vector2( 62, 8 )
+
 [node name="EscortB" type="Area2D" parent="."]
 position = Vector2( 175, 550 )
 collision_mask = 2
@@ -105,6 +133,12 @@ texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EscortB"]
 polygon = PoolVector2Array( -69, -15, -23, -15, -14, -25, 16, -25, 24, -16, 39, -15, 70, -4, 70, 4, 38, 15, 22, 15, 18, 25, -17, 25, -22, 15, -70, 15 )
+
+[node name="Tube1" type="Position2D" parent="EscortB"]
+position = Vector2( 62, -8 )
+
+[node name="Tube2" type="Position2D" parent="EscortB"]
+position = Vector2( 62, 8 )
 
 [node name="CargoA" type="Area2D" parent="."]
 position = Vector2( 90, 130 )
