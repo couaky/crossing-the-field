@@ -2,11 +2,11 @@ extends Node2D
 
 
 # TODOs
-#	Fire torpedoes
 #	Ship explosion
-#	Ship thrusters
+#	Ship + torpedoes thrusters
 #	Score
 #	Better asteroid wave management
+#	Ship visual damage
 #	Finalize UI and game states
 #	Sound design
 #	Final adjustments -> almost final version

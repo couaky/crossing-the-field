@@ -2,10 +2,15 @@ class_name ShockWave
 extends Area2D
 
 
-func _ready():
-	$AnimationPlayer.play("ShockWaveExpand")
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "ShockWaveExpand":
+func play(weapon: String):
+	if weapon == "Shell":
+		$AnimationPlayer.play("ShockWaveShell")
+	elif weapon == "Torpedo":
+		$AnimationPlayer.play("ShockWaveTorpedo")
+	else:
+		# Should never happen
 		queue_free()
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	queue_free()

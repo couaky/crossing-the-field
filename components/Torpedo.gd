@@ -2,7 +2,12 @@ class_name Torpedo
 extends Area2D
 
 
-var target: Vector2 = Vector2.ZERO
+export var shockwave_scene: PackedScene
+export var explosion_scene: PackedScene
+export var torpedo_plasma_scene: PackedScene
+
+
+var target: Vector2 = Vector2(750, 300)
 
 var initial_speed: Vector2 = Vector2(50.0, 0.0)
 var max_speed: float = 300.0
@@ -68,6 +73,22 @@ func _do_engagement(delta):
 
 
 func _detonate():
+	var root_node = get_node('/root')
+
+	var shockwave = shockwave_scene.instance() as ShockWave
+	root_node.add_child(shockwave)
+	shockwave.position = global_position
+	shockwave.play("Torpedo")
+
+	var explosion = explosion_scene.instance() as Explosion
+	root_node.add_child(explosion)
+	explosion.position = global_position
+	explosion.torpedo_explosion()
+
+	var plasma = torpedo_plasma_scene.instance() as TorpedoPlasma
+	root_node.add_child(plasma)
+	plasma.position = global_position
+
 	queue_free()
 
 
@@ -92,3 +113,7 @@ func _process(delta):
 		_detonate()
 	else:
 		position += current_velocity * delta
+
+
+func _on_Torpedo_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	call_deferred("_detonate")

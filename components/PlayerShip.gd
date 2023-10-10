@@ -26,4 +26,4 @@ func _ready():
 
 
 func _on_self_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	_take_damage()
+	call_deferred("_take_damage")

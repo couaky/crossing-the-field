@@ -22,6 +22,7 @@ func _detonate():
 	var shockwave = shockwave_scene.instance() as ShockWave
 	root_node.add_child(shockwave)
 	shockwave.position = global_position
+	shockwave.play("Shell")
 
 	var explosion = explosion_scene.instance() as Explosion
 	root_node.add_child(explosion)
@@ -40,4 +41,4 @@ func _process(delta):
 
 
 func _on_CannonShell_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	_detonate()
+	call_deferred("_detonate")

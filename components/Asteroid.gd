@@ -37,5 +37,5 @@ func _process(delta: float):
 		queue_free()
 
 
-func _on_Asteroid_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	_explode()
+func _on_Asteroid_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
+	call_deferred("_explode")

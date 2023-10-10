@@ -17,5 +17,10 @@ func cannon_fire():
 	$AnimationPlayer.play("ShellExplosion")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func torpedo_explosion():
+	$Sprite.scale = Vector2(0.8, 0.8)
+	$AnimationPlayer.play("TorpedoExplosion")
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()
